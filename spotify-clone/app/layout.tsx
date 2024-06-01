@@ -6,19 +6,17 @@ import './globals.css';
 import { Figtree } from 'next/font/google';
 
 import { SupabaseProvider } from '@/providers/SupabaseProvider';
-import Sidebar from '@/components/Sidebar';
 import { UserProvider } from '@/providers/UserProvider';
-// import { UserProvider } from '@/providers/UserProvider';
-// import { ModalProvider } from '@/providers/ModalProvider';
-// import { ToasterProvider } from '@/providers/ToasterProvider';
+import { ModalProvider } from '@/providers/ModalProvider';
+import { ToasterProvider } from '@/providers/ToasterProvider';
+import { Sidebar } from '@/components/Sidebar';
+import { getSongsByUserId } from '@/actions/getSongsByUserId';
+import { getActiveProductsWithPrices } from '@/actions/getActiveProductsWithPrices';
 
-// import { getSongsByUserId } from '@/actions/getSongsByUserId';
 // import { Player } from '@/components/Player';
-// import { getActiveProductsWithPrices } from '@/actions/getActiveProductsWithPrices';
 
 const font = Figtree({ subsets: ['latin'] });
 
-//* Describe the web app
 export const metadata = {
   title: 'Spotify Clone',
   description: 'Listen to music!',
@@ -28,8 +26,8 @@ export const revalidate = 0;
 
 //* Main layout component for the app
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // const userSongs = await getSongsByUserId();
-  // const products = await getActiveProductsWithPrices();
+  const userSongs = await getSongsByUserId();
+  const products = await getActiveProductsWithPrices();
 
   //* Providers & Components
   return (
@@ -41,11 +39,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png" />
       </head>
       <body className={font.className}>
-        {/* <ToasterProvider /> */}
+        <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
-            {/* <ModalProvider products={products} /> */}
-            <Sidebar>{children}</Sidebar>
+            <ModalProvider products={products} />
+            <Sidebar songs={userSongs}>{children}</Sidebar>
             {/* <Player /> */}
           </UserProvider>
         </SupabaseProvider>
