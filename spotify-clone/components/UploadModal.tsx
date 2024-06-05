@@ -144,7 +144,7 @@ export const UploadModal = () => {
             {...register("image", { required: true })}
           />
         </div>
-        <Button disabled={isLoading} type="submit">
+        <Button disabled={isLoading} type="submit" className="rounded-md">
           Create
         </Button>
       </form>

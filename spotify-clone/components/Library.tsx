@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { TbPlaylist } from 'react-icons/tb';
-import { AiOutlinePlus } from 'react-icons/ai';
+import { TbPlaylist } from "react-icons/tb";
+import { AiOutlinePlus } from "react-icons/ai";
 
-import { useSubscribeModal } from '@/hooks/useSubscribeModal';
-import { useOnPlay } from '@/hooks/useOnPlay';
-import { useAuthModal } from '@/hooks/useAuthModal';
-import { useUser } from '@/hooks/useUser';
-import { useUploadModal } from '@/hooks/useUploadModal';
+import { useSubscribeModal } from "@/hooks/useSubscribeModal";
+import { useOnPlay } from "@/hooks/useOnPlay";
+import { useAuthModal } from "@/hooks/useAuthModal";
+import { useUser } from "@/hooks/useUser";
+import { useUploadModal } from "@/hooks/useUploadModal";
 
-import { Song } from '@/types';
-import { MediaItem } from './MediaItem';
+import { Song } from "@/types";
+import { MediaItem } from "./MediaItem";
 
 interface LibraryProps {
   songs: Song[];
@@ -29,9 +29,9 @@ export const Library: React.FC<LibraryProps> = ({ songs }) => {
       return authModal.onOpen();
     }
 
-    if (!subscription) {
-      return subscribeModal.onOpen();
-    }
+    // if (!subscription) {
+    //   return subscribeModal.onOpen();
+    // }
 
     return uploadModal.onOpen();
   };
@@ -51,7 +51,11 @@ export const Library: React.FC<LibraryProps> = ({ songs }) => {
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">
         {songs.map((item) => (
-          <MediaItem onClick={(id: string) => onPlay(id)} key={item.id} data={item} />
+          <MediaItem
+            onClick={(id: string) => onPlay(id)}
+            key={item.id}
+            data={item}
+          />
         ))}
       </div>
     </div>

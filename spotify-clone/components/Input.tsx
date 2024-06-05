@@ -18,10 +18,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         px-3
         py-3
         text-sm
-        file:border-0
-        file:bg-transparent
+        file:bg-rose-500
+        file:border-none
+        file:text-black
+        file:px-2
         file:text-sm
         file:font-medium
+        file:rounded-md
+        file:cursor-pointer
+        file:hover:opacity-75
+
         placeholder:text-neutral-400
         disabled:cursor-not-allowed
         disabled:opacity-50

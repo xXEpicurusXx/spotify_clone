@@ -2,7 +2,7 @@
 
 import { Button } from "./Button";
 
-// import { usePlayer } from "@/hooks/usePlayer";
+import { usePlayer } from "@/hooks/usePlayer";
 import { useUser } from "@/hooks/useUser";
 import { useAuthModal } from "@/hooks/useAuthModal";
 
@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 
 import { twMerge } from "tailwind-merge";
 
-// import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -30,18 +30,18 @@ export const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
-  // const player = usePlayer();
+  const player = usePlayer();
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    // player.reset();
+    player.reset();
     router.refresh();
 
-    // if (error) {
-    //   toast.error(error.message);
-    // } else {
-    //   toast.success("Logged out!");
-    // }
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Logged out!");
+    }
   };
 
   return (
