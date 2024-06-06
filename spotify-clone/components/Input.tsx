@@ -27,9 +27,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         file:rounded-md
         file:cursor-pointer
         file:hover:opacity-75
-
         placeholder:text-neutral-400
         disabled:cursor-not-allowed
+        disabled:file:cursor-not-allowed
+        disabled:file:opacity-50
         disabled:opacity-50
         focus:outline-none
         `,
