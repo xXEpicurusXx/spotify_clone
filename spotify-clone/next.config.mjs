@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["nxfaqthfdwxbbymfnrtp.supabase.co"], // Add your Supabase hostname here
+    domains: ["nxfaqthfdwxbbymfnrtp.supabase.co"],
   },
 };
 
