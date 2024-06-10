@@ -13,8 +13,8 @@ import { HiSpeakerXMark, HiSpeakerWave } from "react-icons/hi2";
 import { MediaItem } from "./MediaItem";
 import { LikeButton } from "./LikeButton";
 import { Slider } from "./Slider";
+// @ts-ignore
 import useSound from "use-sound";
-
 
 interface PlayerContentProps {
   song: Song;
