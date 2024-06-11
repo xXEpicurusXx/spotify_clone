@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { Song } from "@/types";
 
-import { usePlayer } from "@/hooks/usePlayer";
+import usePlayer from "@/hooks/usePlayer";
 
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { AiFillBackward, AiFillStepForward } from "react-icons/ai";
@@ -12,7 +12,7 @@ import { HiSpeakerXMark, HiSpeakerWave } from "react-icons/hi2";
 
 import { MediaItem } from "./MediaItem";
 import { LikeButton } from "./LikeButton";
-import { Slider } from "./Slider";
+import Slider from "./Slider";
 // @ts-ignore
 import useSound from "use-sound";
 

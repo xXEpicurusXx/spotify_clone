@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { useAuthModal } from "@/hooks/useAuthModal";
+import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
 import { useSessionContext } from "@supabase/auth-helpers-react";

@@ -1,4 +1,4 @@
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay } from "react-icons/fa";
 
 export const PlayButton = () => {
   return (
@@ -9,7 +9,7 @@ export const PlayButton = () => {
         rounded-full 
         flex 
         items-center
-      bg-rose-500 
+        bg-rose-500 
         p-4
         drop-shadow-md
         translate 

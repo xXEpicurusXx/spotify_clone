@@ -1,7 +1,7 @@
-import { Song } from '@/types';
+import { Song } from "@/types";
 
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { supabase } from '@supabase/auth-ui-shared';
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { supabase } from "@supabase/auth-ui-shared";
 
 export const useLoadImage = (song: Song) => {
   const supabaseClient = useSupabaseClient();
@@ -10,7 +10,9 @@ export const useLoadImage = (song: Song) => {
     return null;
   }
 
-  const { data: imageData } = supabaseClient.storage.from('images').getPublicUrl(song.image_path);
+  const { data: imageData } = supabaseClient.storage
+    .from("images")
+    .getPublicUrl(song.image_path);
 
   return imageData.publicUrl;
 };

@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import { AuthModal } from "@/components/AuthModal";
-import { UploadModal } from "@/components/UploadModal";
-// import SubscribeModal from "@/components/SubscribeModal";
-import { ProductWithPrice } from "@/types";
+import { UploadModal } from '@/components/UploadModal';
+import { ProductWithPrice } from '@/types';
+import AuthModal from '@/components/AuthModal';
 
 interface ModalProviderProps {
   products: ProductWithPrice[];
@@ -26,7 +25,6 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ products }) => {
     <>
       <AuthModal />
       <UploadModal />
-      {/* <SubscribeModal products={products} /> */}
     </>
   );
 };

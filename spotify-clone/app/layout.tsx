@@ -1,25 +1,21 @@
-import { Sidebar } from "@/components/Sidebar";
-
-import "./globals.css";
-
-// import { Analytics } from '@vercel/analytics/react';
-
 import { Figtree } from "next/font/google";
 
-import { SupabaseProvider } from "@/providers/SupabaseProvider";
+import getSongsByUserId from "@/actions/getSongsByUserId";
+import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
+import { Sidebar } from "@/components/Sidebar";
+import { ToasterProvider } from "@/providers/ToasterProvider";
 import { UserProvider } from "@/providers/UserProvider";
 import { ModalProvider } from "@/providers/ModalProvider";
-import { ToasterProvider } from "@/providers/ToasterProvider";
-
-import { getSongsByUserId } from "@/actions/getSongsByUserId";
+import SupabaseProvider from "@/providers/SupabaseProvider";
 import { Player } from "@/components/Player";
-import { getActiveProductsWithPrices } from "@/actions/getActiveProductsWithPrices";
+
+import "./globals.css";
 
 const font = Figtree({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Spotify Clone",
-  description: "Listen to music!",
+  description: "Spotify clone",
 };
 
 export const revalidate = 0;
@@ -29,31 +25,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const userSongs = await getSongsByUserId();
   const products = await getActiveProductsWithPrices();
+  const userSongs = await getSongsByUserId();
 
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="../images/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="../images/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="../images/favicon-16x16.png"
-        />
-      </head>
       <body className={font.className}>
         <ToasterProvider />
         <SupabaseProvider>
@@ -63,7 +39,6 @@ export default async function RootLayout({
             <Player />
           </UserProvider>
         </SupabaseProvider>
-        {/* <Analytics /> */}
       </body>
     </html>
   );

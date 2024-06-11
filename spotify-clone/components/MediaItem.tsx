@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import { useLoadImage } from '@/hooks/useLoadImage';
+import { useLoadImage } from "@/hooks/useLoadImage";
 
-import { Song } from '@/types';
+import { Song } from "@/types";
 
-import { usePlayer } from '@/hooks/usePlayer';
+import usePlayer from "@/hooks/usePlayer";
 
 interface MediaItemProps {
   data: Song;
@@ -48,7 +48,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
       >
         <Image
           fill
-          src={imageUrl || '/images/liked.png'}
+          src={imageUrl || "/images/liked.png"}
           alt="Media Item"
           className="object-cover"
         />

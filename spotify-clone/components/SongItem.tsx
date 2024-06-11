@@ -1,20 +1,23 @@
+// components/SongItem.tsx
+"use client";
+
 import { Song } from "@/types";
 import { PlayButton } from "./PlayButton";
 import Image from "next/image";
 import { useLoadImage } from "@/hooks/useLoadImage";
-import React from "react";
+import { useClick } from "@/app/context/ClickContext";
 
 interface SongItemProps {
   data: Song;
-  onClick: (id: string) => void;
 }
 
-export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
+export const SongItem: React.FC<SongItemProps> = ({ data }) => {
   const imagePath = useLoadImage(data);
+  const { handleClick } = useClick();
 
   return (
     <div
-      onClick={() => onClick(data.id)}
+      onClick={() => handleClick(data.id)}
       className="
         relative 
         group
@@ -26,10 +29,11 @@ export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
         gap-x-4
         bg-neutral-400/5
         cursor-pointer
+        hover:bg-neutral-400/10
         transition
         p-3
         rounded-md
-      "
+        "
     >
       <div
         className="
@@ -39,9 +43,6 @@ export const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
           h-full
           rounded-md
           overflow-hidden
-          transform
-          hover:scale-110
-          transition-transform
         "
       >
         <Image

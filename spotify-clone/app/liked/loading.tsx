@@ -9,7 +9,7 @@ const Loading = () => {
       <Triangle
         height="80"
         width="80"
-        color="#1DB954"
+        color="#f43f5e"
         ariaLabel="triangle-loading"
         visible={true}
       />
